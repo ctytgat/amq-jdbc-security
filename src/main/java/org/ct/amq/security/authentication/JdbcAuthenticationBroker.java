@@ -12,11 +12,18 @@ import java.security.cert.X509Certificate;
 import java.util.Set;
 
 public class JdbcAuthenticationBroker extends AbstractAuthenticationBroker {
-    private UserRepository userRepository;
+    private IUserRepository userRepository;
 
-    public JdbcAuthenticationBroker(Broker next, UserRepository userRepository) {
+    public JdbcAuthenticationBroker(Broker next, IUserRepository userRepository) {
         super(next);
         this.userRepository = userRepository;
+    }
+
+    @Override
+    public void start() throws Exception {
+        userRepository.initialize();
+
+        super.start();
     }
 
     @Override
@@ -38,7 +45,7 @@ public class JdbcAuthenticationBroker extends AbstractAuthenticationBroker {
     }
 
     public SecurityContext authenticate(String username, String password, X509Certificate[] x509Certificates) throws SecurityException {
-        final User user = userRepository.findUser(username);
+        final User user = userRepository.getUser(username);
         if (user == null || !user.getPassword().equals(password) || !user.isEnabled()) {
             throw new SecurityException("User name [" + username + "] or password is invalid.");
         }
