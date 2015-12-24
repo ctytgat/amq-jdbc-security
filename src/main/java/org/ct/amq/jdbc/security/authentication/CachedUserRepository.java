@@ -1,6 +1,6 @@
-package org.ct.amq.security.authentication;
+package org.ct.amq.jdbc.security.authentication;
 
-import org.ct.amq.security.User;
+import org.ct.amq.jdbc.security.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

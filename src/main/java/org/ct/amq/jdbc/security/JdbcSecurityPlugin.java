@@ -1,11 +1,11 @@
-package org.ct.amq.security;
+package org.ct.amq.jdbc.security;
 
 import org.apache.activemq.broker.Broker;
 import org.apache.activemq.broker.BrokerPlugin;
-import org.ct.amq.security.authentication.CachedUserRepository;
-import org.ct.amq.security.authentication.IUserRepository;
-import org.ct.amq.security.authentication.JdbcAuthenticationBroker;
-import org.ct.amq.security.authentication.UserRepository;
+import org.ct.amq.jdbc.security.authentication.CachedUserRepository;
+import org.ct.amq.jdbc.security.authentication.IUserRepository;
+import org.ct.amq.jdbc.security.authentication.JdbcAuthenticationBroker;
+import org.ct.amq.jdbc.security.authentication.UserRepository;
 
 /**
  * JDBC security plugin

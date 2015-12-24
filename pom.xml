@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>org.ct.amq</groupId>
-    <artifactId>jdbc-loginmodule</artifactId>
+    <artifactId>jdbc-security</artifactId>
 
     <dependencies>
         <dependency>

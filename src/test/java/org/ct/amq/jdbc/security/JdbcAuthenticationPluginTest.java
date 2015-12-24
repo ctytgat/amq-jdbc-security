@@ -58,7 +58,11 @@ public class JdbcAuthenticationPluginTest extends SecurityTestSupport {
     @Override
     protected void setUp() throws Exception {
         setAutoFail(true);
-        db = new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).addDefaultScripts().build();
+        db = new EmbeddedDatabaseBuilder().
+                setType(EmbeddedDatabaseType.H2).
+                addScript("org/ct/amq/jdbc/security/authentication/schema.sql").
+                addScript("org/ct/amq/jdbc/security/authentication/test-data.sql").
+                build();
         super.setUp();
     }
 
@@ -73,7 +77,7 @@ public class JdbcAuthenticationPluginTest extends SecurityTestSupport {
 
     @Override
     protected BrokerService createBroker() throws Exception {
-        return createBroker("jdbc-auth-broker.xml");
+        return createBroker("org/ct/amq/jdbc/security/authentication/test-broker.xml");
     }
 
     protected BrokerService createBroker(String uri) throws Exception {
