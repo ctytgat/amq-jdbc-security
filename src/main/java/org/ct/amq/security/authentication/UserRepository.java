@@ -19,7 +19,7 @@ public class UserRepository {
     public User findUser(String username) {
         try (Connection connection = datasource.getConnection();
             Statement statement = connection.createStatement()) {
-            try (ResultSet resultSet = statement.executeQuery("select * from USERS left join AUTHORITIES on USERS.username = AUTHORITIES.username where username='" + username + "'")) {
+            try (ResultSet resultSet = statement.executeQuery("select * from USERS left join AUTHORITIES on USERS.username = AUTHORITIES.username where USERS.username='" + username + "'")) {
                 if (resultSet.next()) {
                     User.Builder builder = new User.Builder();
                     builder.withUsername(username);

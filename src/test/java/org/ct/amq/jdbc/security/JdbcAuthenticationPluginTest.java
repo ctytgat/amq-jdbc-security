@@ -62,7 +62,7 @@ public class JdbcAuthenticationPluginTest extends SecurityTestSupport {
 
     @Override
     protected BrokerService createBroker() throws Exception {
-        return createBroker("org/apache/activemq/security/simple-auth-broker.xml");
+        return createBroker("jdbc-auth-broker.xml");
     }
 
     protected BrokerService createBroker(String uri) throws Exception {

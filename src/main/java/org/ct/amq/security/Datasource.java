@@ -4,6 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Datasource for the jdbc security plugin
+ *
+ * @org.apache.xbean.XBean
+ *
+ */
 public class Datasource {
     private String url;
     private String driver;
