@@ -41,7 +41,7 @@ public class CachedUserRepository implements IUserRepository {
         getScheduledThreadPoolExecutor().scheduleWithFixedDelay(usersRefreshJob, refreshRateInMillis, refreshRateInMillis, TimeUnit.MILLISECONDS);
     }
 
-    public ScheduledThreadPoolExecutor getScheduledThreadPoolExecutor() {
+    private ScheduledThreadPoolExecutor getScheduledThreadPoolExecutor() {
         return new ScheduledThreadPoolExecutor(1, new ThreadFactory() {
             @Override
             public Thread newThread(Runnable runnable) {

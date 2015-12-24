@@ -1,6 +1,7 @@
 package org.ct.amq.jdbc.security.authentication;
 
 import org.apache.activemq.jaas.GroupPrincipal;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.security.Principal;
 import java.util.Collections;
@@ -9,9 +10,10 @@ import java.util.Set;
 
 public class User {
     private String username;
-    private String password;
+    private String encryptedPassword;
     private boolean enabled;
     private Set<String> roles = new HashSet<>();
+    private final static BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
     private User() {
     }
@@ -20,8 +22,8 @@ public class User {
         return enabled;
     }
 
-    public String getPassword() {
-        return password;
+    public String getEncryptedPassword() {
+        return encryptedPassword;
     }
 
     public String getUsername() {
@@ -38,6 +40,19 @@ public class User {
             principals.add(new GroupPrincipal(role));
         }
         return principals;
+    }
+
+    @Override public String toString() {
+        return "User{" +
+                "enabled=" + enabled +
+                ", username='" + username + '\'' +
+                ", password='" + encryptedPassword + '\'' +
+                ", roles=" + roles +
+                '}';
+    }
+
+    public boolean hasPassword(String password) {
+        return bCryptPasswordEncoder.matches(password, encryptedPassword);
     }
 
     public static class Builder {
@@ -57,7 +72,7 @@ public class User {
         }
 
         public Builder withPassword(String password) {
-            this.user.password = password;
+            this.user.encryptedPassword = password;
             return this;
         }
 
@@ -71,4 +86,5 @@ public class User {
             return user;
         }
     }
+
 }

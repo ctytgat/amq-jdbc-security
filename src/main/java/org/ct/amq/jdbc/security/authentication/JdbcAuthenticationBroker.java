@@ -45,7 +45,7 @@ public class JdbcAuthenticationBroker extends AbstractAuthenticationBroker {
 
     public SecurityContext authenticate(String username, String password, X509Certificate[] x509Certificates) throws SecurityException {
         final User user = userRepository.getUser(username);
-        if (user == null || !user.getPassword().equals(password) || !user.isEnabled()) {
+        if (user == null || !user.isEnabled() || !user.hasPassword(password)) {
             throw new SecurityException("User name [" + username + "] or password is invalid.");
         }
 

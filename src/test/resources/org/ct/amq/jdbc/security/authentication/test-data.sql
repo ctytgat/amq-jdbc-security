@@ -1,7 +1,7 @@
-Insert into USERS (USERNAME,PASSWORD,ENABLED) values ('system','manager','1');
-Insert into USERS (USERNAME,PASSWORD,ENABLED) values ('guest','password','1');
-Insert into USERS (USERNAME,PASSWORD,ENABLED) values ('user','password','1');
-Insert into USERS (USERNAME,PASSWORD,ENABLED) values ('disableduser','password','0');
+Insert into USERS (USERNAME,PASSWORD,ENABLED) values ('system','$2a$10$uD1KgkY3PQI4w9dr2mZPbOZPEnD8PzOz0.dFUe2Tf1NfEPd0KD97u','1');
+Insert into USERS (USERNAME,PASSWORD,ENABLED) values ('guest','$2a$10$oO8aBz6i7w1y///lhrdiju7sjZnJpZC6lsJnVNc/kVe8j7j2o8dzS','1');
+Insert into USERS (USERNAME,PASSWORD,ENABLED) values ('user','$2a$10$oO8aBz6i7w1y///lhrdiju7sjZnJpZC6lsJnVNc/kVe8j7j2o8dzS','1');
+Insert into USERS (USERNAME,PASSWORD,ENABLED) values ('disableduser','$2a$10$oO8aBz6i7w1y///lhrdiju7sjZnJpZC6lsJnVNc/kVe8j7j2o8dzS','0');
 Insert into AUTHORITIES (USERNAME,AUTHORITY) values ('guest','guests');
 Insert into AUTHORITIES (USERNAME,AUTHORITY) values ('system','admins');
 Insert into AUTHORITIES (USERNAME,AUTHORITY) values ('system','users');
