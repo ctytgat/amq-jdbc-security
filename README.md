@@ -1,3 +1,4 @@
-# amq-jdbc-loginmodule
+# amq-jdbc-security
 
-Under construction
+A simple JDBC security plugin for ActiveMQ.
+Currently only supports authentication.
