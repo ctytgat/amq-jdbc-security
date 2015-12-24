@@ -1,7 +1,6 @@
 package org.ct.amq.jdbc.security.authentication;
 
 import org.ct.amq.jdbc.security.Datasource;
-import org.ct.amq.jdbc.security.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

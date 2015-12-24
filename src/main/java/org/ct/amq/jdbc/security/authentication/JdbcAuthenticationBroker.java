@@ -5,7 +5,6 @@ import org.apache.activemq.broker.ConnectionContext;
 import org.apache.activemq.command.ConnectionInfo;
 import org.apache.activemq.security.AbstractAuthenticationBroker;
 import org.apache.activemq.security.SecurityContext;
-import org.ct.amq.jdbc.security.User;
 
 import java.security.Principal;
 import java.security.cert.X509Certificate;

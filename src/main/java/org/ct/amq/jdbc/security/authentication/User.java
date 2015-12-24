@@ -1,4 +1,4 @@
-package org.ct.amq.jdbc.security;
+package org.ct.amq.jdbc.security.authentication;
 
 import org.apache.activemq.jaas.GroupPrincipal;
 
