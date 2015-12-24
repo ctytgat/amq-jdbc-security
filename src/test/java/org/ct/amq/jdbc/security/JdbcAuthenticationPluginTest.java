@@ -115,9 +115,22 @@ public class JdbcAuthenticationPluginTest extends SecurityTestSupport {
         } catch (Exception ignore) {}
     }
 
-    public void testConnectionStartThrowsJMSSecurityException() throws Exception {
+    public void testConnectionStartWithUnknownUserThrowsJMSSecurityException() throws Exception {
 
         Connection connection = factory.createConnection("badUser", "password");
+        try {
+            connection.start();
+            fail("Should throw JMSSecurityException");
+        } catch (JMSSecurityException jmsEx) {
+        } catch (Exception e) {
+            LOG.info("Expected JMSSecurityException but was: {}", e.getClass());
+            fail("Should throw JMSSecurityException");
+        }
+    }
+
+    public void testConnectionStartWithDisabledUserThrowsJMSSecurityException() throws Exception {
+
+        Connection connection = factory.createConnection("disableduser", "password");
         try {
             connection.start();
             fail("Should throw JMSSecurityException");
