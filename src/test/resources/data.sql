@@ -1,0 +1,9 @@
+Insert into USERS (USERNAME,PASSWORD,ENABLED) values ('system','manager','1');
+Insert into USERS (USERNAME,PASSWORD,ENABLED) values ('guest','password','1');
+Insert into USERS (USERNAME,PASSWORD,ENABLED) values ('user','password','1');
+Insert into USERS (USERNAME,PASSWORD,ENABLED) values ('disableduser','password','0');
+Insert into AUTHORITIES (USERNAME,AUTHORITY) values ('guest','guests');
+Insert into AUTHORITIES (USERNAME,AUTHORITY) values ('system','admins');
+Insert into AUTHORITIES (USERNAME,AUTHORITY) values ('system','users');
+Insert into AUTHORITIES (USERNAME,AUTHORITY) values ('user','users');
+Insert into AUTHORITIES (USERNAME,AUTHORITY) values ('disableduser','users');

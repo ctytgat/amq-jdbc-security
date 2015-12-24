@@ -31,6 +31,9 @@ import org.apache.activemq.security.SecurityTestSupport;
 import org.apache.activemq.util.Wait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 import javax.jms.Connection;
 import javax.jms.JMSException;
@@ -46,6 +49,8 @@ public class JdbcAuthenticationPluginTest extends SecurityTestSupport {
 
     private static final Logger LOG = LoggerFactory.getLogger(JdbcAuthenticationPluginTest.class);
 
+    private EmbeddedDatabase db;
+
     public static Test suite() {
         return suite(JdbcAuthenticationPluginTest.class);
     }
@@ -53,7 +58,13 @@ public class JdbcAuthenticationPluginTest extends SecurityTestSupport {
     @Override
     protected void setUp() throws Exception {
         setAutoFail(true);
+        db = new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).addDefaultScripts().build();
         super.setUp();
+    }
+
+    @Override public void tearDown() throws Exception {
+        super.tearDown();
+        db.shutdown();
     }
 
     public static void main(String[] args) {

@@ -62,10 +62,9 @@
     <plugins>
 		<sec:jdbcSecurityPlugin>
 			<sec:datasource >
-                <sec:datasource driver="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:51521/XE" user="FLEXMQ" password="FLEXMQ"/>
+                <sec:datasource driver="org.h2.Driver" url="jdbc:h2:mem:testdb" user="sa" password=""/>
             </sec:datasource>
 		</sec:jdbcSecurityPlugin>
-
 
       <!--  lets configure a destination based authorization mechanism -->
       <authorizationPlugin>
